@@ -1,0 +1,179 @@
+/bin/ping: invalid argument: '2147483648': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '1073741824': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '536870912': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '268435456': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '134217728': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '67108864': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '33554432': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '16777216': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '8388608': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '4194304': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '2097152': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '1048576': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '524288': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '262144': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '131072': out of range: 0 <= value <= 127992
+
+
+/bin/ping: packet size 65536 is too large. Maximum is 65507
+
+
+PING www.iitd.ac.in (103.27.9.24) 32768(32796) bytes of data.
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1031ms
+
+
+
+PING www.iitd.ac.in (103.27.9.24) 16384(16412) bytes of data.
+16392 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=1 ttl=53 time=43.9 ms
+16392 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=2 ttl=53 time=241 ms
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 43.914/142.673/241.433/98.759 ms
+
+
+PING www.iitd.ac.in (103.27.9.24) 24576(24604) bytes of data.
+24584 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=1 ttl=53 time=174 ms
+24584 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=2 ttl=53 time=159 ms
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 158.594/166.090/173.586/7.496 ms
+
+
+PING www.iitd.ac.in (103.27.9.24) 28672(28700) bytes of data.
+28680 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=1 ttl=53 time=52.9 ms
+28680 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=2 ttl=53 time=66.3 ms
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 52.908/59.626/66.345/6.718 ms
+
+
+PING www.iitd.ac.in (103.27.9.24) 30720(30748) bytes of data.
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1027ms
+
+
+
+PING www.iitd.ac.in (103.27.9.24) 29696(29724) bytes of data.
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1002ms
+
+
+
+PING www.iitd.ac.in (103.27.9.24) 29184(29212) bytes of data.
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1023ms
+
+
+
+PING www.iitd.ac.in (103.27.9.24) 28928(28956) bytes of data.
+28936 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=1 ttl=53 time=164 ms
+28936 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=2 ttl=53 time=192 ms
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 163.659/177.864/192.070/14.205 ms
+
+
+PING www.iitd.ac.in (103.27.9.24) 29056(29084) bytes of data.
+29064 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=1 ttl=53 time=202 ms
+29064 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=2 ttl=53 time=185 ms
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 185.054/193.680/202.307/8.626 ms
+
+
+PING www.iitd.ac.in (103.27.9.24) 29120(29148) bytes of data.
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1032ms
+
+
+
+PING www.iitd.ac.in (103.27.9.24) 29088(29116) bytes of data.
+29096 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=1 ttl=53 time=65.0 ms
+29096 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=2 ttl=53 time=72.6 ms
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 65.006/68.792/72.578/3.786 ms
+
+
+PING www.iitd.ac.in (103.27.9.24) 29104(29132) bytes of data.
+29112 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=1 ttl=53 time=165 ms
+29112 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=2 ttl=53 time=163 ms
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 163.244/164.243/165.243/0.999 ms
+
+
+PING www.iitd.ac.in (103.27.9.24) 29112(29140) bytes of data.
+29120 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=1 ttl=53 time=65.6 ms
+29120 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=2 ttl=53 time=70.3 ms
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 65.618/67.957/70.296/2.339 ms
+
+
+PING www.iitd.ac.in (103.27.9.24) 29116(29144) bytes of data.
+29124 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=1 ttl=53 time=153 ms
+29124 bytes from 103.27.9.24 (103.27.9.24): icmp_seq=2 ttl=53 time=177 ms
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1000ms
+rtt min/avg/max/mdev = 152.552/164.786/177.021/12.234 ms
+
+
+PING www.iitd.ac.in (103.27.9.24) 29118(29146) bytes of data.
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1032ms
+
+
+
+PING www.iitd.ac.in (103.27.9.24) 29117(29145) bytes of data.
+
+--- www.iitd.ac.in ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1006ms
+
+
+
+The max size of ping for www.iitd.ac.in is 29116 bytes

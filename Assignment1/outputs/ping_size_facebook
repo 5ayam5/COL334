@@ -1,0 +1,173 @@
+/bin/ping: invalid argument: '2147483648': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '1073741824': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '536870912': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '268435456': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '134217728': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '67108864': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '33554432': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '16777216': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '8388608': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '4194304': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '2097152': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '1048576': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '524288': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '262144': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '131072': out of range: 0 <= value <= 127992
+
+
+/bin/ping: packet size 65536 is too large. Maximum is 65507
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 32768(32796) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1003ms
+
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 16384(16412) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1008ms
+
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 8192(8220) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1008ms
+
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 4096(4124) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1007ms
+
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 2048(2076) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1008ms
+
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1024(1052) bytes of data.
+1032 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55 time=17.3 ms
+1032 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=2 ttl=55 time=22.8 ms
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 17.290/20.056/22.823/2.766 ms
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1536(1564) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1032ms
+
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1280(1308) bytes of data.
+1288 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55 time=15.4 ms
+1288 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=2 ttl=55 time=15.3 ms
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 15.281/15.359/15.438/0.078 ms
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1408(1436) bytes of data.
+1416 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55 time=16.2 ms
+1416 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=2 ttl=55 time=43.9 ms
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 16.216/30.040/43.865/13.824 ms
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1472(1500) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1008ms
+
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1440(1468) bytes of data.
+1448 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55 time=15.8 ms
+1448 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=2 ttl=55 time=51.7 ms
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 15.755/33.704/51.653/17.949 ms
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1456(1484) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1002ms
+
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1448(1476) bytes of data.
+1456 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55 time=21.3 ms
+1456 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=2 ttl=55 time=16.1 ms
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 16.121/18.716/21.312/2.595 ms
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1452(1480) bytes of data.
+1460 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55 time=16.0 ms
+1460 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=2 ttl=55 time=17.7 ms
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 16.013/16.866/17.719/0.853 ms
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1454(1482) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1004ms
+
+
+
+PING star-mini.c10r.facebook.com (157.240.23.35) 1453(1481) bytes of data.
+
+--- star-mini.c10r.facebook.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1008ms
+
+
+
+The max size of ping for www.facebook.com is 1452 bytes
