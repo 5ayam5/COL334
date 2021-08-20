@@ -1,11 +1,12 @@
 \documentclass[11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan]{hyperref}
+\usepackage[english]{babel}
+\usepackage{minted}
 \usepackage{graphicx}
 \usepackage[left=25mm, top=25mm, bottom=30mm, right=25mm]{geometry}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan]{hyperref}
 
-\renewcommand\thesubsection{\thesection(\alph{subsection})}
-\renewcommand\thesubsubsection{\thesubsection(\roman{subsubsection})}
+\renewcommand\thesubsection{\thesection.\alph{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\roman{subsubsection}}
 
 \title{COL334: Assignment 1}
 \author{Sayam Sethi}
@@ -71,8 +72,51 @@ The size of the transmitted packet is always $28$ bytes larger than the size set
 \paragraph{\href{https://www.facebook.com}{Facebook}} Facebook is reached within atleast $10$ hops.
 
 
+\subsection{\texttt{traceroute}}
+
+\subsubsection{\href{https://www.iitd.ac.in}{IITD}}
+\paragraph{Router} Running \texttt{traceroute} to \href{https://www.iitd.ac.in}{IITD} using router gave no response:
+\inputminted{text}{outputs/traceroute_iitd_novpn}
+
+\paragraph{Router + VPN} Running \texttt{traceroute} using \textit{IITD VPN} was successful and gave the following trace:
+\inputminted{text}{outputs/traceroute_iitd_vpn}
+
+\subsubsection{\href{https://www.google.com}{Google}}
+
+\paragraph{Router} The trace obtained was:
+\inputminted{text}{outputs/traceroute_google_router}
+
+\paragraph{Mobile Hotspot} The trace now obtained was:
+\inputminted{text}{outputs/traceroute_google_hotspot}
+
+\subsubsection{Observations}
+The following observations were made when running \texttt{traceroute}:
+\begin{enumerate}
+    \item Three packets are pinged for each hop value to \textit{display consistency, or a lack thereof, in the route}
+    \item The router at the second hop value doesn't ping when using the default (no additional options) \texttt{traceroute} command
+    \item Different routes are followed when using different networks to access the same URL
+\end{enumerate}
+
+\subsubsection{Changes to Improve Tracing}
+\begin{enumerate}
+    \item Traceroute by default uses \textbf{UDP} which is unreliable and hence many servers do not respond to it. To avoid this issue, \texttt{-I} flag can be used, which uses \textbf{ICPM echo} as the packet instead.
+        \begin{center}
+            \includegraphics[width=0.5\linewidth]{figures/traceroute_better.png}
+        \end{center}
+
+    \item To find the best value of the \textit{RTT}, the number of iterations can be increased to establish a stable communication with each router and have a larger success rate of pinging.
+\end{enumerate}
 
 
+\section{Packet Analysis}
+
+
+
+\section{Implementing Traceroute}
+
+To implement \texttt{traceroute}, socket programming was used to send an \textit{ICMP} echo request and receive the response from the server setting different hop values.\par
+The ping function looks like:
+\inputminted[firstline=37,lastline=]{python}{traceroute.py}
 
 
 
