@@ -71,7 +71,7 @@ def ping(ttl):
     packet = struct.pack("!BBHHH", ICMP_ECHO_REQUEST, 0,
                          checksum(packet), 0, 0)
 
-    # make 3 attempts to find the IP with the hop value enroute
+    # make "probe_count" attempts to find the IP with the hop value enroute
     print(ttl, end='\t', flush=True)
     prev_addr = ""
     reached = False
@@ -124,7 +124,7 @@ if __name__ == '__main__':
             prev = times[i]
 
     plt.plot(rtt.keys(), times, label="RTT")
-    plt.plot(rtt.keys(), diff, label="time to next switch")
+    plt.plot(rtt.keys(), diff, label="time to next router")
     plt.xlabel("Hops")
     plt.ylabel("Time (ms)")
     plt.title("Plot of Hops vs Round Trip Time")
