@@ -1,0 +1,165 @@
+/bin/ping: invalid argument: '2147483648': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '1073741824': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '536870912': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '268435456': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '134217728': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '67108864': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '33554432': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '16777216': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '8388608': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '4194304': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '2097152': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '1048576': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '524288': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '262144': out of range: 0 <= value <= 127992
+
+
+/bin/ping: invalid argument: '131072': out of range: 0 <= value <= 127992
+
+
+/bin/ping: packet size 65536 is too large. Maximum is 65507
+
+
+PING www.google.com (142.250.195.68) 32768(32796) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1020ms
+
+
+
+PING www.google.com (142.250.195.68) 16384(16412) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1008ms
+
+
+
+PING www.google.com (142.250.195.68) 8192(8220) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1008ms
+
+
+
+PING www.google.com (142.250.195.68) 4096(4124) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1009ms
+
+
+
+PING www.google.com (142.250.195.68) 2048(2076) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1008ms
+
+
+
+PING www.google.com (142.250.195.68) 1024(1052) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1001ms
+
+
+
+PING www.google.com (142.250.195.68) 512(540) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1002ms
+
+
+
+PING www.google.com (142.250.195.68) 256(284) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1002ms
+
+
+
+PING www.google.com (142.250.195.68) 128(156) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1002ms
+
+
+
+PING www.google.com (142.250.195.68) 64(92) bytes of data.
+72 bytes from maa03s38-in-f4.1e100.net (142.250.195.68): icmp_seq=1 ttl=116 time=99.3 ms
+72 bytes from maa03s38-in-f4.1e100.net (142.250.195.68): icmp_seq=2 ttl=116 time=110 ms
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+rtt min/avg/max/mdev = 99.260/104.591/109.922/5.331 ms
+
+
+PING www.google.com (142.250.195.68) 96(124) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1001ms
+
+
+
+PING www.google.com (142.250.195.68) 80(108) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1002ms
+
+
+
+PING www.google.com (142.250.195.68) 72(100) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1002ms
+
+
+
+PING www.google.com (142.250.195.68) 68(96) bytes of data.
+76 bytes from maa03s38-in-f4.1e100.net (142.250.195.68): icmp_seq=1 ttl=116 time=116 ms
+76 bytes from maa03s38-in-f4.1e100.net (142.250.195.68): icmp_seq=2 ttl=116 time=128 ms
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+rtt min/avg/max/mdev = 116.203/122.287/128.372/6.084 ms
+
+
+PING www.google.com (142.250.195.68) 70(98) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1002ms
+
+
+
+PING www.google.com (142.250.195.68) 69(97) bytes of data.
+
+--- www.google.com ping statistics ---
+2 packets transmitted, 0 received, 100% packet loss, time 1001ms
+
+
+
+The max size of ping for www.google.com is 68 bytes

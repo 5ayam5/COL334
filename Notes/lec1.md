@@ -22,7 +22,8 @@ numbersections: true
 - If resources not available (client or a middle node), network is *busy*
 - Since path fixed, destination address not sent during the conversation (only during initialisation), only a unique identifier to the call
 - Information transmitted as continuous stream of data
-- Source tears down the circuit when call ends  
+- Source tears down the circuit when call ends
+
 This approach is called **circuit switching**
 
 ### History of "Switches"
@@ -46,12 +47,13 @@ The connection completion and destruction combined has a high overhead
     i. Failure of any node on the path prevents transmission (new routes are not created dynamically)
     i. Each transmission had a huge overhead
 - **Wastes bandwidth**: peak bandwidth (P) larger than average bandwidth (A), A/P about 1/3 for a telephone call but 1/100 or lower for data transfer  
-  Resolution: Using **Statistical Multiplexing**, this strategy aims to support about $2-3x$ of average behaviour
+  Resolution: Using **Statistical Multiplexing**, this strategy aims to support about $2-3\times$ of average behaviour
 - Optimised only for voice communication
 - Setup time high
 
 ### Fixes and Ways to Overcome the Weaknesses
 Paul Baran was one of the pioneers for improvements. His paper "On Distributed Communications" (1964) contained the following three points:
+
 1. Distributed control
 2. Message blocks (packets)
 3. Store-and-forward delivery

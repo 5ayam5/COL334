@@ -15,7 +15,7 @@ numbersections: true
 Compared to client-server architecture, file sharing time is reduced by huge amounts since each peer uploads the file to the other peers. BitTorrent is an example of a P2P network
 
 ### BitTorrent
-1. The file is divided into chunks of size 256 Kb
+1. The file is divided into chunks of size 256 kB
 2. Peer asks for list of chunks from each peer periodically
 3. Missing chunks are reuqested in order of rarity
 4. Chunks are sent to top 4 peers who send chunks at highest rate (re-evaluated every 10 seconds)
@@ -47,7 +47,7 @@ Video is made up of frames which are made up of pixels. Encoding of these frames
 ### Content Distribution Networks (CDNs)
 Two methods are employed by CDN services:
 
-1. Enter deep (large number of serversinto many access networks)
+1. Enter deep (large number of server sinto many access networks)
 2. Bring home (lesser servers in large clusters at PoPs [Points of Presence])
 
 #### Working of CDNs

@@ -56,7 +56,7 @@ This is of two types:
 
 ### Addressing Processes
 1. Each host device has a unique 32-bit IP address, that acts as an *identifier*
-2. TO address the issue of multiple processes running on the same host, the concept of **port number** is used
+2. To address the issue of multiple processes running on the same host, the concept of **port number** is used
 
 ### Information in the Header(?)
 1. Type of message exchanged: request/response
@@ -80,7 +80,7 @@ Various open-protocols defining the syntax for the above information are availab
 
 #### Transmission Control Protocol (TCP)
 1. Reliable transport between sending and receiving processes
-2. Flow control 9to not overwhelm the receiver
+2. Flow control (to not overwhelm the receiver)
 3. Congestion control
 4. Connection-oriented: setup needed before communication
 5. No timining, throughput, security guarantee

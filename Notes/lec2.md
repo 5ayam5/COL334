@@ -34,6 +34,7 @@ Thus, a total of 17 messages are communicated between the two end points
 
 ### Link
 Transmission technology such as:
+
 - Coaxial
 - Twisted pair: has multiple sub-cables which serve different purposes
 - Optical
@@ -54,6 +55,7 @@ where, $A=$ arrival rate, $B=$ bandwidth.
 
 ### Node
 The computational device at the end of every link. It is if two types:
+
 1. Host: a "user"
 2. Network node: switch/router
 
@@ -94,7 +96,7 @@ The first CDN company was "Akamai", which was started at an MIT competition
 - Think about why is it relevant?
 
 ### Packet Loss
-1. **Buffer Overflow**: different strategies can be used such as drop tail, drop head, drop tail or drop a random packet
+1. **Buffer Overflow**: different strategies can be used such as drop tail, drop head or drop a random packet
 2. **Corruption**: can be detected using checksum, low probability to occur because of sophisticated technology
 
 ## Queuing Terminology

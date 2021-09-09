@@ -1,0 +1,72 @@
+TTL: 128
+PING www.google.com (142.250.195.68) 1(29) bytes of data.
+9 bytes from maa03s38-in-f4.1e100.net (142.250.195.68): icmp_seq=1 ttl=116
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 64
+PING www.google.com (142.250.195.68) 1(29) bytes of data.
+9 bytes from maa03s38-in-f4.1e100.net (142.250.195.68): icmp_seq=1 ttl=116
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 32
+PING www.google.com (142.250.195.68) 1(29) bytes of data.
+9 bytes from maa03s38-in-f4.1e100.net (142.250.195.68): icmp_seq=1 ttl=116
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 16
+PING www.google.com (142.250.195.68) 1(29) bytes of data.
+9 bytes from maa03s38-in-f4.1e100.net (142.250.195.68): icmp_seq=1 ttl=116
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 8
+PING www.google.com (142.250.195.68) 1(29) bytes of data.
+9 bytes from maa03s38-in-f4.1e100.net (142.250.195.68): icmp_seq=1 ttl=116
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 4
+PING www.google.com (142.250.195.68) 1(29) bytes of data.
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 0 received, 100% packet loss, time 0ms
+
+
+
+TTL: 6
+PING www.google.com (142.250.195.68) 1(29) bytes of data.
+From 108.170.253.97 (108.170.253.97) icmp_seq=1 Time to live exceeded
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+
+
+TTL: 7
+PING www.google.com (142.250.195.68) 1(29) bytes of data.
+From 142.251.55.75 icmp_seq=1 Time to live exceeded
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+
+
+The min TTL of ping for www.google.com is 8 hops

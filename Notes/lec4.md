@@ -15,6 +15,7 @@ numbersections: true
 
 ### HTTP/2
 In *HTTP1.1*, the responses happen in FCFS manner. This leads to head-of-line (HOL) blocking and loss recovery time is huge. HTTP/2 overcomes these issues in the following ways:
+
 1. Transmission happens on a priority order and not FCFS
 2. Objects are divided into frames and scheduling is done to mitigate HOL blocking
 
@@ -23,6 +24,7 @@ This was proposed by **Google** and was called **SPDY** earlier. This later went
 
 ## Email
 This is made up of three main components:
+
 1. User agents
 2. Mail servers
 3. Simple Mail Transfer Protocol (SMTP)
@@ -87,7 +89,7 @@ Hierarchical database:
 1. Contact-of-last-resort for name servers that cannot resolve names
 2. DNSSEC provides security and management
 3. ICANN (International Corporation for Assigned Names and Numbers) manages root DNS domains
-4. 13 logical root name servers exist which are replicated wrold-wide
+4. 13 logical root name servers exist which are replicated world-wide
 
 #### Local DNS Name Servers
 1. To prevent the situation of high load on the few root name servers, the query is first sent to the ISP's local DNS server.

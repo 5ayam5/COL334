@@ -1,0 +1,73 @@
+TTL: 128
+PING star-mini.c10r.facebook.com (157.240.23.35) 1(29) bytes of data.
+9 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55
+
+--- star-mini.c10r.facebook.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 64
+PING star-mini.c10r.facebook.com (157.240.23.35) 1(29) bytes of data.
+9 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55
+
+--- star-mini.c10r.facebook.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 32
+PING star-mini.c10r.facebook.com (157.240.23.35) 1(29) bytes of data.
+9 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55
+
+--- star-mini.c10r.facebook.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 16
+PING star-mini.c10r.facebook.com (157.240.23.35) 1(29) bytes of data.
+9 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55
+
+--- star-mini.c10r.facebook.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 8
+PING star-mini.c10r.facebook.com (157.240.23.35) 1(29) bytes of data.
+From po102.psw01.maa2.tfbnw.net (129.134.34.151) icmp_seq=1 Time to live exceeded
+
+--- star-mini.c10r.facebook.com ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+
+
+TTL: 12
+PING star-mini.c10r.facebook.com (157.240.23.35) 1(29) bytes of data.
+9 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55
+
+--- star-mini.c10r.facebook.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 10
+PING star-mini.c10r.facebook.com (157.240.23.35) 1(29) bytes of data.
+9 bytes from edge-star-mini-shv-01-maa2.facebook.com (157.240.23.35): icmp_seq=1 ttl=55
+
+--- star-mini.c10r.facebook.com ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+
+
+
+TTL: 9
+PING star-mini.c10r.facebook.com (157.240.23.35) 1(29) bytes of data.
+From 173.252.67.29 (173.252.67.29) icmp_seq=1 Time to live exceeded
+
+--- star-mini.c10r.facebook.com ping statistics ---
+1 packets transmitted, 0 received, +1 errors, 100% packet loss, time 0ms
+
+
+
+The min TTL of ping for www.facebook.com is 10 hops
