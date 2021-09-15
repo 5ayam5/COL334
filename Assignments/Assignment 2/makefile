@@ -1,7 +1,13 @@
+runServer: Server
+	java Server
+
 Server: Server.class
 
 Server.class: Server.java
 	javac Server.java
+
+runClient: Client
+	java Client $(username)
 
 Client: Client.class
 
