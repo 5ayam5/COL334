@@ -111,6 +111,10 @@ public class Server {
                 sendResponse(103);
 
             username = header[2];
+            if (!username.matches("[0-9A-Za-z]+")) {
+                sendResponse(100);
+                return;
+            }
             if (header[1].equals("TOSEND")) {
                 if (sendUsers.contains(username) || header.length != 3) {
                     sendResponse(100);

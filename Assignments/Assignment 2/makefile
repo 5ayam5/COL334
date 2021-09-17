@@ -15,7 +15,6 @@ Client.class: Client.java
 	javac Client.java
 
 report: report.pdf
-	xdg-open report.pdf
 
 report.pdf: report.tex
 	latexmk -pdf --shell-escape report.tex

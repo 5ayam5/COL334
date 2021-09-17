@@ -109,7 +109,7 @@ public class Client {
         private void inAndSend(Scanner scanner) throws IOException {
             String target = scanner.next();
             if (target.charAt(0) != '@' || target.length() == 1) {
-                System.out.println("No target user specified, please retype the message");
+                System.err.println("No target user specified, please retype the message");
                 return;
             }
             target = target.substring(1);
@@ -121,10 +121,10 @@ public class Client {
 
             switch (sendData(headerList, message, target)) {
                 case 202:
-                    System.out.println("Sent!");
+                    System.err.println("Sent!");
                     return;
                 case 102:
-                    System.out.println("Could not send message");
+                    System.err.println("Could not send message");
                     return;
                 default:
                     throw new IOException();
@@ -144,9 +144,7 @@ public class Client {
                     inAndSend(scanner);
                 throw new IOException();
             } catch (IOException e) {
-                e.printStackTrace();
                 try {
-                    System.err.println("Error occured, closing connection");
                     socket.close();
                 } catch (IOException e1) {
                     return;
@@ -255,7 +253,7 @@ public class Client {
         if (args.length > 1)
             try {
                 port = Integer.parseInt(args[1]);
-                if (port < 0 || port > 65535)
+                if (port <= 0 || port > 65535)
                     throw new NumberFormatException();
             } catch (NumberFormatException e) {
                 port = 2428;
@@ -270,8 +268,11 @@ public class Client {
             sendThread.start();
             recvThread.start();
             while (sendThread.isAlive() && recvThread.isAlive());
-            sendThread.interrupt();
-            recvThread.interrupt();
+            if (!sendThread.isAlive())
+                System.err.println("Lost connection on sender, closing");
+            if (!recvThread.isAlive())
+                System.err.println("Lost connection on receiver, closing");
+            System.exit(0);
         } catch (UnknownHostException e) {
             System.err.println("Invalid host given");
         } catch (IOException e) {
