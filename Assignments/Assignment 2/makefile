@@ -1,5 +1,5 @@
 runServer: Server
-	java Server
+	java Server $(port)
 
 Server: Server.class
 
@@ -7,7 +7,7 @@ Server.class: Server.java
 	javac Server.java
 
 runClient: Client
-	java Client $(username)
+	java Client $(username) $(port) $(address)
 
 Client: Client.class
 
