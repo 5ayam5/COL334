@@ -47,7 +47,7 @@ Out of order segment are handled by the implementor and no formal specification 
 TCP estimates RTT by considering a SampleRTT value from the time taken for ACK to reach, this values varies a lot and hence an estimatedRTT is needed:
 $${estimatedRTT}=(1-\alpha){estimatedRTT}+\alpha{SampleRTT}$$
 This evaluation gives EWMA (exponential weighted moving average) and $\alpha$ is usually taken as $0.125$. Timeout interval is given as:
-$${TimeoutInterval}={estimatedRTT}+4{deviationRTT}$$
+$${TimeoutInterval}={estimatedRTT}+4\cdot{deviationRTT}$$
 $deviationRTT$ is calculated using EWMA of deviation of $SampleRTT$ from $estimatedRTT$
 
 ## TCP Sender (Simplified)
@@ -73,7 +73,7 @@ $deviationRTT$ is calculated using EWMA of deviation of $SampleRTT$ from $estima
     - send ACK
 
 ## TCP Fast Retransmit
-If sender receives 3 additional ACKs for same data, resend unACKed segment with smalles sequence number (since that segment has mostly been lost)
+If sender receives 3 additional ACKs for same data, resend unACKed segment with smallest sequence number (since that segment has mostly been lost)
 
 ## TCP Flow Control
 `rwnd` field in the header contains the available empty buffer size, unACKed data is limited to `rwnd`

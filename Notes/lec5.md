@@ -47,7 +47,7 @@ Video is made up of frames which are made up of pixels. Encoding of these frames
 ### Content Distribution Networks (CDNs)
 Two methods are employed by CDN services:
 
-1. Enter deep (large number of server sinto many access networks)
+1. Enter deep (large number of servers into many access networks)
 2. Bring home (lesser servers in large clusters at PoPs [Points of Presence])
 
 #### Working of CDNs

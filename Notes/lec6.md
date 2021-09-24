@@ -49,7 +49,7 @@ Use header info from transport layer to deliver received segments to correct soc
 3. Each segment has source, destination port number
 4. Host uses this IP address and port number to direct segment to the correct socket
 
-Port number 0 to 1023 are *reserved* port numbers and applications need to make sockets on different port numbers, from 1024 to 65,353
+Port number 0 to 1023 are *reserved* port numbers and applications need to make sockets on different port numbers, from 1024 to 65,535
 
 #### Connectionless De-Multiplexing
 UDP datagrams with same destination port number but different source IP addresses and/or port numbers will be redirected to same socket at receiving host

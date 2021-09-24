@@ -90,6 +90,7 @@ Internet without the modern computer, or modern computer without internet?
 
 ## Challenges  
 (mostly because updates/upgrades will affect a very huge popluation, rolling out difficult too)
+
 1. Security
 2. Availability
 3. Evolution

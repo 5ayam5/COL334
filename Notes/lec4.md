@@ -48,7 +48,7 @@ This is made up of three main components:
     i. Closure
 5. Interaction similar to HTTP, differences are:
     i. SMTP has client *push* unlike client *pull* in HTTP
-    i. SMTP has multple objects in multipart message unlike HTTP which has a single response message for each response
+    i. SMTP has multiple objects in multipart message unlike HTTP which has a single response message for each response
     i. SMTP requires message to be in 7-bit ASCII (other data is encoded)
     i. "\\r\\n.\\r\\n" is used to identify end of message in SMTP
 
