@@ -65,6 +65,11 @@ public:
   MyApp();
   virtual ~MyApp();
 
+  /**
+   * Register this type.
+   * \return The TypeId.
+   */
+  static TypeId GetTypeId(void);
   void Setup(Ptr<Socket> socket, Address address, uint32_t packetSize, uint32_t nPackets, DataRate dataRate);
 
 private:
@@ -99,6 +104,16 @@ MyApp::MyApp()
 MyApp::~MyApp()
 {
   m_socket = 0;
+}
+
+/* static */
+TypeId MyApp::GetTypeId(void)
+{
+  static TypeId tid = TypeId("MyApp")
+                          .SetParent<Application>()
+                          .SetGroupName("Tutorial")
+                          .AddConstructor<MyApp>();
+  return tid;
 }
 
 void MyApp::Setup(Ptr<Socket> socket, Address address, uint32_t packetSize, uint32_t nPackets, DataRate dataRate)
@@ -155,15 +170,17 @@ void MyApp::ScheduleTx(void)
 }
 
 static void
-CwndChange(uint32_t oldCwnd, uint32_t newCwnd)
+CwndChange(Ptr<OutputStreamWrapper> stream, uint32_t oldCwnd, uint32_t newCwnd)
 {
   NS_LOG_UNCOND(Simulator::Now().GetSeconds() << "\t" << newCwnd);
+  *stream->GetStream() << Simulator::Now().GetSeconds() << "\t" << oldCwnd << "\t" << newCwnd << std::endl;
 }
 
 static void
-RxDrop(Ptr<const Packet> p)
+RxDrop(Ptr<PcapFileWrapper> file, Ptr<const Packet> p)
 {
   NS_LOG_UNCOND("RxDrop at " << Simulator::Now().GetSeconds());
+  file->Write(Simulator::Now(), p);
 }
 
 int main(int argc, char *argv[])
@@ -207,13 +224,16 @@ int main(int argc, char *argv[])
   TypeId tid = TypeId::LookupByName(tcp_type);
   Config::Set("/NodeList/*/$ns3::TcpL4Protocol/SocketType", TypeIdValue(tid));
   Ptr<Socket> ns3TcpSocket = Socket::CreateSocket(nodes.Get(0), TcpSocketFactory::GetTypeId());
-  ns3TcpSocket->TraceConnectWithoutContext("CongestionWindow", MakeCallback(&CwndChange));
 
   Ptr<MyApp> app = CreateObject<MyApp>();
   app->Setup(ns3TcpSocket, sinkAddress, 3000, 1500, DataRate("1Mbps"));
   nodes.Get(0)->AddApplication(app);
   app->SetStartTime(Seconds(1.));
   app->SetStopTime(Seconds(30.));
+
+  AsciiTraceHelper asciiTraceHelper;
+  Ptr<OutputStreamWrapper> stream = asciiTraceHelper.CreateFileStream("scratch/Q1/output.cwnd");
+  ns3TcpSocket->TraceConnectWithoutContext("CongestionWindow", MakeBoundCallback(&CwndChange, stream));
 
   devices.Get(1)->TraceConnectWithoutContext("PhyRxDrop", MakeCallback(&RxDrop));
 
