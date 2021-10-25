@@ -23,42 +23,8 @@
 
 using namespace ns3;
 
-NS_LOG_COMPONENT_DEFINE("Q1_Script");
+NS_LOG_COMPONENT_DEFINE("Q3_Script");
 
-// ===========================================================================
-//
-//         node 0                 node 1
-//   +----------------+    +----------------+
-//   |    ns-3 TCP    |    |    ns-3 TCP    |
-//   +----------------+    +----------------+
-//   |    10.1.1.1    |    |    10.1.1.2    |
-//   +----------------+    +----------------+
-//   | point-to-point |    | point-to-point |
-//   +----------------+    +----------------+
-//           |                     |
-//           +---------------------+
-//                8 Mbps, 3 ms
-//
-//
-// We want to look at changes in the ns-3 TCP congestion window.  We need
-// to crank up a flow and hook the CongestionWindow attribute on the socket
-// of the sender.  Normally one would use an on-off application to generate a
-// flow, but this has a couple of problems.  First, the socket of the on-off
-// application is not created until Application Start time, so we wouldn't be
-// able to hook the socket (now) at configuration time.  Second, even if we
-// could arrange a call after start time, the socket is not public so we
-// couldn't get at it.
-//
-// So, we can cook up a simple version of the on-off application that does what
-// we want.  On the plus side we don't need all of the complexity of the on-off
-// application.  On the minus side, we don't have a helper, so we have to get
-// a little more involved in the details, but this is trivial.
-//
-// So first, we create a socket and do the trace connect on it; then we pass
-// this socket into the constructor of our simple application which we then
-// install in the source node.
-// ===========================================================================
-//
 class MyApp : public Application
 {
 public:
@@ -173,15 +139,15 @@ static void
 CwndChange(Ptr<OutputStreamWrapper> stream, uint32_t oldCwnd, uint32_t newCwnd)
 {
 	NS_LOG_UNCOND(Simulator::Now().GetSeconds() << "\t" << newCwnd);
-	*stream->GetStream() << Simulator::Now().GetSeconds() << "\t" << oldCwnd << "\t" << newCwnd << std::endl;
+	*stream->GetStream() << Simulator::Now().GetSeconds() << "\t" << oldCwnd << "\t" << newCwnd << '\n';
 }
 
-// static void
-// RxDrop(Ptr<PcapFileWrapper> file, Ptr<const Packet> p)
-// {
-// 	NS_LOG_UNCOND("RxDrop at " << Simulator::Now().GetSeconds());
-// 	file->Write(Simulator::Now(), p);
-// }
+static void
+RxDrop(Ptr<OutputStreamWrapper> stream, Ptr<const Packet> p)
+{
+	NS_LOG_UNCOND("RxDrop at " << Simulator::Now().GetSeconds());
+	*stream->GetStream() << Simulator::Now().GetSeconds() << '\n';
+}
 
 void setP2PHelper(PointToPointHelper &helper, int data_rate, int delay)
 {
@@ -196,10 +162,11 @@ PacketSinkHelper getPacketSinkHelper(uint16_t sinkPort)
 
 int main(int argc, char *argv[])
 {
+	TypeId newRenoCSE = TypeId::LookupByName("ns3::TcpNewRenoCSE");
 	int config = 1;
 
 	CommandLine cmd;
-	cmd.AddValue("config", "COnfiguration", config);
+	cmd.AddValue("config", "Configuration", config);
 	cmd.Parse(argc, argv);
 
 	NodeContainer nodes;
@@ -212,6 +179,11 @@ int main(int argc, char *argv[])
 	NetDeviceContainer devices[2];
 	devices[0] = pointToPoint[0].Install(nodes.Get(0), nodes.Get(2));
 	devices[1] = pointToPoint[1].Install(nodes.Get(1), nodes.Get(2));
+
+	Ptr<RateErrorModel> em = CreateObject<RateErrorModel>();
+	em->SetAttribute("ErrorRate", DoubleValue(0.00001));
+	for (int i = 0; i < 2; ++i)
+		devices[i].Get(1)->SetAttribute("ReceiveErrorModel", PointerValue(em));
 
 	InternetStackHelper stack;
 	stack.Install(nodes);
@@ -231,13 +203,17 @@ int main(int argc, char *argv[])
 		sinkApps[i].Stop(Seconds(30.));
 	}
 
-	// TypeId tid = TypeId::LookupByName(tcp_type);
-	// Config::Set("/NodeList/*/$ns3::TcpL4Protocol/SocketType", TypeIdValue(tid));
+	if (config == 2)
+	{
+		Config::Set("/NodeList/" + std::to_string(nodes.Get(2)->GetId()) + "/$ns3::TcpL4Protocol/SocketType", TypeIdValue(newRenoCSE));
+	}
+	else if (config == 3)
+		Config::Set("/NodeList/*/$ns3::TcpL4Protocol/SocketType", TypeIdValue(newRenoCSE));
 	Ptr<Socket> ns3TcpSocket[3] = {Socket::CreateSocket(nodes.Get(0), TcpSocketFactory::GetTypeId()), Socket::CreateSocket(nodes.Get(0), TcpSocketFactory::GetTypeId()), Socket::CreateSocket(nodes.Get(1), TcpSocketFactory::GetTypeId())};
 
 	Ptr<MyApp> app[3] = {CreateObject<MyApp>(), CreateObject<MyApp>(), CreateObject<MyApp>()};
 	for (int i = 0; i < 3; ++i)
-		app[i]->Setup(ns3TcpSocket[i], sinkAddress[i], 3000, 2000, DataRate("1.5Mbps"));
+		app[i]->Setup(ns3TcpSocket[i], sinkAddress[i], 3000, 1000000000, DataRate("1.5Mbps"));
 	nodes.Get(0)->AddApplication(app[0]);
 	nodes.Get(0)->AddApplication(app[1]);
 	nodes.Get(1)->AddApplication(app[2]);
@@ -249,9 +225,13 @@ int main(int argc, char *argv[])
 	app[2]->SetStopTime(Seconds(30.));
 
 	AsciiTraceHelper asciiTraceHelper;
-	Ptr<OutputStreamWrapper> stream[3] = {asciiTraceHelper.CreateFileStream("scratch/Q3/output1.cwnd"), asciiTraceHelper.CreateFileStream("scratch/Q3/output2.cwnd"), asciiTraceHelper.CreateFileStream("scratch/Q3/output3.cwnd")};
+	Ptr<OutputStreamWrapper> stream[3] = {asciiTraceHelper.CreateFileStream("outputs/config" + std::to_string(config) + "connection1.cwnd"), asciiTraceHelper.CreateFileStream("outputs/config" + std::to_string(config) + "connection2.cwnd"), asciiTraceHelper.CreateFileStream("outputs/config" + std::to_string(config) + "connection3.cwnd")};
 	for (int i = 0; i < 3; ++i)
 		ns3TcpSocket[i]->TraceConnectWithoutContext("CongestionWindow", MakeBoundCallback(&CwndChange, stream[i]));
+
+	Ptr<OutputStreamWrapper> drop_stream = asciiTraceHelper.CreateFileStream("outputs/config" + std::to_string(config) + ".drop");
+	devices[0].Get(1)->TraceConnectWithoutContext("PhyRxDrop", MakeBoundCallback(&RxDrop, drop_stream));
+	devices[1].Get(1)->TraceConnectWithoutContext("PhyRxDrop", MakeBoundCallback(&RxDrop, drop_stream));
 
 	Simulator::Stop(Seconds(30));
 	Simulator::Run();
