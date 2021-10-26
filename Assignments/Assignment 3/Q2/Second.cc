@@ -111,7 +111,7 @@ TypeId MyApp::GetTypeId(void)
 {
   static TypeId tid = TypeId("MyApp")
                           .SetParent<Application>()
-                          .SetGroupName("Q1")
+                          .SetGroupName("Q2")
                           .AddConstructor<MyApp>();
   return tid;
 }
@@ -176,26 +176,27 @@ CwndChange(Ptr<OutputStreamWrapper> stream, uint32_t oldCwnd, uint32_t newCwnd)
   *stream->GetStream() << Simulator::Now().GetSeconds() << "\t" << oldCwnd << "\t" << newCwnd << '\n';
 }
 
-static void
-RxDrop(Ptr<OutputStreamWrapper> stream, Ptr<const Packet> p)
-{
-  NS_LOG_UNCOND("RxDrop at " << Simulator::Now().GetSeconds());
-  *stream->GetStream() << Simulator::Now().GetSeconds() << '\n';
-}
-
 int main(int argc, char *argv[])
 {
-  std::string tcp_type = "TcpNewReno";
+  int type = 1;
+  std::string rate;
 
   CommandLine cmd;
-  cmd.AddValue("type", "TCP type", tcp_type);
+  cmd.AddValue("type", "Link Rate/ADR", type);
+  cmd.AddValue("rate", "Data rate", rate);
   cmd.Parse(argc, argv);
+
+  std::string channel_rate, application_rate;
+  if (type == 1)
+    channel_rate = rate + "Mbps", application_rate = "2Mbps";
+  else if (type == 2)
+    channel_rate = "6Mbps", application_rate = rate + "Mbps";
 
   NodeContainer nodes;
   nodes.Create(2);
 
   PointToPointHelper pointToPoint;
-  pointToPoint.SetDeviceAttribute("DataRate", StringValue("8Mbps"));
+  pointToPoint.SetDeviceAttribute("DataRate", StringValue(channel_rate));
   pointToPoint.SetChannelAttribute("Delay", StringValue("3ms"));
 
   NetDeviceContainer devices;
@@ -219,22 +220,17 @@ int main(int argc, char *argv[])
   sinkApps.Start(Seconds(0.));
   sinkApps.Stop(Seconds(30.));
 
-  TypeId tid = TypeId::LookupByName("ns3::" + tcp_type);
-  Config::Set("/NodeList/*/$ns3::TcpL4Protocol/SocketType", TypeIdValue(tid));
   Ptr<Socket> ns3TcpSocket = Socket::CreateSocket(nodes.Get(0), TcpSocketFactory::GetTypeId());
 
   Ptr<MyApp> app = CreateObject<MyApp>();
-  app->Setup(ns3TcpSocket, sinkAddress, 3000, 1000000000, DataRate("1Mbps"));
+  app->Setup(ns3TcpSocket, sinkAddress, 3000, 1000000000, DataRate(application_rate));
   nodes.Get(0)->AddApplication(app);
   app->SetStartTime(Seconds(1.));
   app->SetStopTime(Seconds(30.));
 
   AsciiTraceHelper asciiTraceHelper;
-  Ptr<OutputStreamWrapper> stream = asciiTraceHelper.CreateFileStream("outputs/" + tcp_type + ".cwnd");
+  Ptr<OutputStreamWrapper> stream = asciiTraceHelper.CreateFileStream("outputs/channel" + channel_rate + "_application" + application_rate + ".cwnd");
   ns3TcpSocket->TraceConnectWithoutContext("CongestionWindow", MakeBoundCallback(&CwndChange, stream));
-
-  Ptr<OutputStreamWrapper> drop_stream = asciiTraceHelper.CreateFileStream("outputs/" + tcp_type + ".drop");
-  devices.Get(1)->TraceConnectWithoutContext("PhyRxDrop", MakeBoundCallback(&RxDrop, drop_stream));
 
   Simulator::Stop(Seconds(30));
   Simulator::Run();

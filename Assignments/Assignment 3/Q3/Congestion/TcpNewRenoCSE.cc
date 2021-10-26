@@ -4,6 +4,7 @@
 using namespace ns3;
 
 NS_OBJECT_ENSURE_REGISTERED(TcpNewRenoCSE);
+NS_LOG_COMPONENT_DEFINE("TcpNewRenoCSE");
 
 uint32_t TcpNewRenoCSE::SlowStart(Ptr<TcpSocketState> tcb, uint32_t segmentsAcked)
 {
