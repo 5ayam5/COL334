@@ -19,5 +19,5 @@ def plot(dir: str):
 
 if __name__ == "__main__":
     plot("Q1/outputs")
-    # plot("Q2")
+    plot("Q2/outputs")
     plot("Q3/outputs")
