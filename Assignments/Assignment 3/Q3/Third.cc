@@ -138,14 +138,14 @@ void MyApp::ScheduleTx(void)
 static void
 CwndChange(Ptr<OutputStreamWrapper> stream, uint32_t oldCwnd, uint32_t newCwnd)
 {
-	NS_LOG_UNCOND(Simulator::Now().GetSeconds() << "\t" << newCwnd);
+	// NS_LOG_UNCOND(Simulator::Now().GetSeconds() << "\t" << newCwnd);
 	*stream->GetStream() << Simulator::Now().GetSeconds() << "\t" << oldCwnd << "\t" << newCwnd << '\n';
 }
 
 static void
 RxDrop(Ptr<OutputStreamWrapper> stream, Ptr<const Packet> p)
 {
-	NS_LOG_UNCOND("RxDrop at " << Simulator::Now().GetSeconds());
+	// NS_LOG_UNCOND("RxDrop at " << Simulator::Now().GetSeconds());
 	*stream->GetStream() << Simulator::Now().GetSeconds() << '\n';
 }
 
@@ -180,10 +180,11 @@ int main(int argc, char *argv[])
 	devices[0] = pointToPoint[0].Install(nodes.Get(0), nodes.Get(2));
 	devices[1] = pointToPoint[1].Install(nodes.Get(1), nodes.Get(2));
 
-	Ptr<RateErrorModel> em = CreateObject<RateErrorModel>();
-	em->SetAttribute("ErrorRate", DoubleValue(0.00001));
+	Ptr<RateErrorModel> em[2] = { CreateObject<RateErrorModel>(), CreateObject<RateErrorModel>()};
 	for (int i = 0; i < 2; ++i)
-		devices[i].Get(1)->SetAttribute("ReceiveErrorModel", PointerValue(em));
+		em[i]->SetAttribute("ErrorRate", DoubleValue(0.00001));
+	for (int i = 0; i < 2; ++i)
+		devices[i].Get(1)->SetAttribute("ReceiveErrorModel", PointerValue(em[i]));
 
 	InternetStackHelper stack;
 	stack.Install(nodes);
@@ -205,7 +206,7 @@ int main(int argc, char *argv[])
 
 	if (config == 2)
 	{
-		Config::Set("/NodeList/" + std::to_string(nodes.Get(2)->GetId()) + "/$ns3::TcpL4Protocol/SocketType", TypeIdValue(newRenoCSE));
+		Config::Set("/NodeList/" + std::to_string(nodes.Get(1)->GetId()) + "/$ns3::TcpL4Protocol/SocketType", TypeIdValue(newRenoCSE));
 	}
 	else if (config == 3)
 		Config::Set("/NodeList/*/$ns3::TcpL4Protocol/SocketType", TypeIdValue(newRenoCSE));
