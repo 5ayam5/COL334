@@ -21,6 +21,7 @@ title: Lecture 18 (Link Layer)
 1. Uses MAC address to identify source and destination
 
 It also offers the following:
+
 1. Flow control
 1. Error detection
 1. Error correction
@@ -53,7 +54,7 @@ Perform 1's complement sum to compute the checksum and add it to the header
 1. $D$ is given (data bits)
 1. $G$, bit pattern (generator) of $r+1$ bits is also given
 1. $<D, R> = D\cdot 2^r \text{xor} R$ ($R$ is $r$ CRC bits)
-1. Choose $R$ such that $<D, R>$ is exactly divisible by $G (\mod 2)$
+1. Choose $R$ such that $<D, R>$ is exactly divisible by $G$ (mod 2)
 $$D\cdot 2^r \text{xor} R = nG$$
 $$D\cdot 2^r = nG \text{xor} R$$
 This implies that the remainder on dividing $D\cdot 2^r$ by $G$ should be $R$.
@@ -77,9 +78,9 @@ The desiderata of a Multiple Access Channel (MAC) is:
 
 ### MAC Protocols
 1. Channel partitioning:
-  - Divide channel into smaller pieces
-  - Allocate piece to node for exclusive use
+    - Divide channel into smaller pieces
+    - Allocate piece to node for exclusive use
 1. Random access:
-  - Allow collisions
-  - Implement recovering from such collisions
+    - Allow collisions
+    - Implement recovering from such collisions
 1. Taking turns

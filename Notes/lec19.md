@@ -62,9 +62,9 @@ Where $t_{prop}$ is max propagation delay and $t_{trans}$ is transmission delay 
 ## Polling
 1. Master node *invites* other nodes to transmit in turn
 1. Drawbacks are:
-  - polling overhead
-  - latency
-  - single point of failure
+    - polling overhead
+    - latency
+    - single point of failure
 
 ## Token Passing
 1. Control token is passed from one node to the next one sequentially
@@ -81,9 +81,9 @@ Where $t_{prop}$ is max propagation delay and $t_{trans}$ is transmission delay 
 1. Host communicates with base station
 1. Base station is the Access Point (AP)
 1. Basic Service Set (BSS) contains:
-  - wireless hosts
-  - AP
-  - ad hoc mode (hosts only)
+    - wireless hosts
+    - AP
+    - ad hoc mode (hosts only)
 
 ### CSMA/CA (Carrier Sense Multiple Access/Collision Avoidance)
 1. Since it is difficult to detect collisions, avoidance is done
